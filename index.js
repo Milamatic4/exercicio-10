@@ -116,3 +116,5 @@ function executar() {
         }
     } while(opcao !== "6")
 }
+
+executar()
