@@ -15,7 +15,7 @@ function listarVagas() {
 function novaVaga() {
     const nome = prompt("Informe um nome para a vaga:")
     const descricao = prompt("Informe a descrição para a vaga:")
-    const dataLimite = prompt("Informe uma data limite (dd/mm/aaaa0) para a vaga:")
+    const dataLimite = prompt("Informe uma data limite (dd/mm/aaaa) para a vaga:")
 
     const confirmacao = confirm("Deseja criar uma nova vaga com essas informações?\n" + "Nome: " + nome + "\nDescrição: " + descricao + "\nData limite: " + dataLimite)
 
@@ -28,6 +28,11 @@ function novaVaga() {
 
 function exibirVaga() {
     const indice = prompt("Informe o índice da vaga que deseja exibir:")
+
+    if (indice >= vagas.length || indice < 0) {
+        alert("Índice inválido")
+        return
+    }
     const vaga = vagas[indice]
 
     const candidatosEmTexto = vaga.candidatos.reduce(function (textoFinal, candidato) {
@@ -78,7 +83,7 @@ function exibirMenu() {
     "Cadastro de Vagas de Emprego" + "\n\nEscolha uma das opções: " +
     "\n1. Listar vagas disponíveis" + 
     "\n2. Criar uma nova vaga" +
-    "\n3.Vizualizar uma nova vaga" +
+    "\n3. Vizualizar uma nova vaga" +
     "\n4. Inscrever um(a) candidato(a)" +
     "\n5. Excluir uma vaga" + 
     "\n6. Sair")
